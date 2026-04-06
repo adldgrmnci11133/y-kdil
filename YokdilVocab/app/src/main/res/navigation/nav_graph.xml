@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/nav_graph"
+    app:startDestination="@id/homeFragment">
+
+    <fragment
+        android:id="@+id/homeFragment"
+        android:name="com.yokdil.vocab.ui.home.HomeFragment"
+        android:label="Ana Sayfa"
+        tools:layout="@layout/fragment_home">
+        <action android:id="@+id/action_home_to_flashcard"
+            app:destination="@id/flashcardFragment" />
+        <action android:id="@+id/action_home_to_quiz"
+            app:destination="@id/quizFragment" />
+        <action android:id="@+id/action_home_to_favorites"
+            app:destination="@id/favoritesFragment" />
+        <action android:id="@+id/action_home_to_progress"
+            app:destination="@id/progressFragment" />
+        <action android:id="@+id/action_home_to_settings"
+            app:destination="@id/settingsFragment" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/flashcardFragment"
+        android:name="com.yokdil.vocab.ui.flashcard.FlashcardFragment"
+        android:label="Flashcard"
+        tools:layout="@layout/fragment_flashcard">
+        <action android:id="@+id/action_flashcard_to_detail"
+            app:destination="@id/wordDetailFragment" />
+        <argument android:name="wordCount"
+            app:argType="integer"
+            android:defaultValue="20" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/quizFragment"
+        android:name="com.yokdil.vocab.ui.quiz.QuizFragment"
+        android:label="Test"
+        tools:layout="@layout/fragment_quiz">
+        <argument android:name="questionCount"
+            app:argType="integer"
+            android:defaultValue="10" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/favoritesFragment"
+        android:name="com.yokdil.vocab.ui.favorites.FavoritesFragment"
+        android:label="Favoriler"
+        tools:layout="@layout/fragment_favorites">
+        <action android:id="@+id/action_favorites_to_detail"
+            app:destination="@id/wordDetailFragment" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/progressFragment"
+        android:name="com.yokdil.vocab.ui.progress.ProgressFragment"
+        android:label="İlerleme"
+        tools:layout="@layout/fragment_progress" />
+
+    <fragment
+        android:id="@+id/wordDetailFragment"
+        android:name="com.yokdil.vocab.ui.detail.WordDetailFragment"
+        android:label="Kelime Detayı"
+        tools:layout="@layout/fragment_word_detail">
+        <argument android:name="wordId"
+            app:argType="integer" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/settingsFragment"
+        android:name="com.yokdil.vocab.ui.settings.SettingsFragment"
+        android:label="Ayarlar"
+        tools:layout="@layout/fragment_settings" />
+
+</navigation>
